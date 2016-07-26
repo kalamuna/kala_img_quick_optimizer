@@ -1,0 +1,36 @@
+<?php
+
+/**
+ * @file
+ * The Missing Module Message Fixer Module file.
+ */
+
+/**
+ * Implements hook_permission().
+ */
+function kala_img_quick_optimizer_permission() {
+  return array(
+    'administer kala img quick optimizer' => array(
+      'title' => t('Administer Kala IMG Quick Optimizer'),
+    ),
+  );
+}
+
+/**
+ * Implements hook_menu().
+ */
+function kala_img_quick_optimizer_menu() {
+  $items = array();
+
+  $items['admin/config/system/kala-img-quick-optimizer'] = array(
+    'title' => 'Kala IMG Quick Optimizer',
+    'description' => 'This module resaves images after you have ImageMagik Installed.',
+    'type' => MENU_NORMAL_ITEM,
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('kala_img_quick_optimizer_form'),
+    'access arguments' => array('administer kala img quick optimizer'),
+    'file' => 'includes/kala_img_quick_optimizer.admin.inc',
+  );
+
+  return $items;
+}

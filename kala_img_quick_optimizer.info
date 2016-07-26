@@ -1,0 +1,8 @@
+name = Kala IMG Quick Optimizer
+description = This module resaves images after you have ImageMagick Installed.
+package = Administration
+core = 7.x
+
+dependencies[] = imagemagick
+
+configure = admin/config/system/kala-img-quick-optimizer
