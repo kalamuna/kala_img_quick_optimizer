@@ -34,3 +34,13 @@ function kala_img_quick_optimizer_menu() {
 
   return $items;
 }
+
+/**
+ * Implements hook_form_alter().
+ */
+function kala_img_quick_optimizer_form_alter(&$form, &$form_state, $form_id) {
+  if ($form_id == 'kala_img_quick_optimizer_form') {
+    // We have to change the submit button text for a config form in the HFA.
+    $form['actions']['submit']['#value'] = 'Resave Images';
+  }
+}
